@@ -38,7 +38,7 @@
         '<span class="icon-bar"></span>',
         '</button>',
         '<a href="#">',
-        '<img src="WEB-INF/imgs/smalllogo.jpg">',
+        '<img src="imgs/smalllogo.jpg">',
         '</a>',
         '</div>',
         '<!-- Collect the nav links, forms, and other content for toggling -->',
@@ -364,7 +364,7 @@
 
 
     if(!window.jQuery){  // 如果没有加载jquery的话，先加载jquery
-        window.Paito.loadScript('WEB-INF/js/jquery.min.js',_rander);
+        window.Paito.loadScript('js/jquery.min.js',_rander);
     }else{
         _rander();
     }

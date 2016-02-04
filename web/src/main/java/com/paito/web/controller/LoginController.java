@@ -43,12 +43,12 @@ public class LoginController {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		ThreadObjManager.clear();
 		httpRequest.getSession().invalidate();
-		return "/index.html";
+		return "redirect:/index.html";
 	}
 
 	@RequestMapping(value = "/login.shtml", method = RequestMethod.GET)
 	public String redirectToLogin(ServletRequest request, ServletResponse response){
-		return "/login.htm";
+		return "redirect:/pages/login.htm";
 	}
 
 	@ResponseBody
@@ -70,7 +70,7 @@ public class LoginController {
 			}
 		}
 
-		return "/index.html";
+		return "redirect:/index.html";
 	}
 	
 }

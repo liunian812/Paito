@@ -53,4 +53,12 @@
         </property>
     </bean>
 
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <description>
+            假如逻辑试图名为 "hello"，因此 viewResolver 将解析成 /WEB-INF/jsp/hello.jsp
+        </description>
+        <property name="order" value="10" />
+        <property name="prefix" value="/pages/" />
+    </bean>
+
 </beans>

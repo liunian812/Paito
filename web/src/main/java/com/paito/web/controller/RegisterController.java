@@ -36,7 +36,7 @@ public class RegisterController{
 	 */
 	@RequestMapping(value = "/register.shtml", method = RequestMethod.GET)
 	public String redirectToRegister(ServletRequest request, ServletResponse response){
-		return "/register.html";
+		return "redirect:/pages/register.html";
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class RegisterController{
 				session.setAttribute(SessionKeys.ATTRIBUTE_TOKEN, Tools.buildToken());
 			}
 		}
-		return "/index.html";
+		return "redirect:/index.html";
 	}
 	
 	/*public String validateMail(){logger.info("11111___________");
