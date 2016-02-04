@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="拍兔、拍卖、域名、米" name="keywords">
+    <meta content="拍兔，中小域名拍卖平台" name="description">
+    <title>拍兔-账号注册</title>
+    <!-- Bootstrap -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/paito/iconfont.css" rel="stylesheet">
+    <link href="../../css/paito/paito-submitdomain.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../../js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <img src="../../imgs/smalllogo.jpg">
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://paito.to/home/aboutpaito.shtml">关于我们</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="page">
+    <div class="form-main-list">
+        <img src="../../../WEB-INF/imgs/status-1.jpg" />
+    </div>
+    <div class="form-list form-main-list">
+        <form id="J_InfoForm" method="post" action="/auction/submitdomain.json">
+            <div class="form-group">
+                <div class="form-item">
+                    <span class="span-left">域名：</span>
+                    <input class="form-text form-text-left" type="text" id="domain" name="domain"  size="20" maxlength="20" placeholder="请输入域名"  />
+                    <span>后缀：</span>
+                    <select name="select-domain" id="select-domain" class="form-select">
+                        <option value="com">.com</option>
+                        <option value="net">.net</option>
+                        <option value="cn">.cn</option>
+                        <option value="info">.info</option>
+                        <option value="cc">.cc</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <span>域名简介：</span>
+                    <input class="form-text"  id="domainDes" type="text" placeholder="请输入域名含义简介" name="domainDes" size="20" maxlength="20" />
+                </div>
+                <div class="form-item">
+                    <span class="span-left"> 平台：</span>
+                    <select name="select-domainPlatform" id="select-domainPlatform" class="form-text-select form-text-left">
+                        <option value="">请选择...</option>
+                        <option value="ennme">ennme.com</option>
+                        <option value="22cn">22.cn</option>
+                        <option value="mincang">mincang.com</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <span>保质期：</span>
+                    <input class="form-text form-text-left" size="20" maxlength="20" name="expireTime" id="expireTime" type="text" placeholder="请输入保质期" >
+                </div>
+                <div class="form-item">
+                    <span>保留价：</span>
+                    <input class="form-text form-text-left" size="20" maxlength="20" name="reservePrice" id="reservePrice" type="text" placeholder="请输入保留价" >
+                </div>
+                <div class="form-item">
+                    <div class="mobile-text">
+                        <span>手机号：</span>
+                        <input class="form-text form-text-left" size="20" maxlength="20" name="mobilePhone" id="mobilePhone" data-pattern="^(86){0,1}1\d{10}$" type="text" value="" data-inner_placeholder="r_p_input_inner_entermobile" placeholder="请输入手机号" onblur="checkUserPhone();">
+                        <span class="msg-type-error" id="userPhone_err" >（手机号码必须是11位数字）</span>
+                        <span class="msg-type-ok" id="userPhone_suc">（可使用）</span>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span>微信号：</span>
+                    <input class="form-text form-text-left" size="20" maxlength="20" name="weixinNick" id="weixinNick" type="text" placeholder="请输入微信号" >
+                </div>
+                <div class="form-item">
+                    <button type="submit" class="btn-yellow" data-phase-id="r_p_next" id="J_BtnGetVerifyCode" onclick="getVerifyCode();">获取验证码</button>
+                    <input class="form-text" id="verifycode" name="verifycode" type="text" placeholder="请输入短信验证码" value="" size="10"  maxlength="10" onblur="checkVerifyCode();" />
+                </div>
+
+                <div class="form-item">
+                    <button type="submit" class="btn btn-large" data-phase-id="r_p_next" id="J_BtnInfoForm">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="form-main-list-right">
+        <div><span class="text-bold">线上提交注意事项：</span></div>
+        <div><span>1、所有信息必须真实有效。</span></div>
+        <div><span>2、审核通过将会有专员羽您联系后续拍卖事宜。</span></div>
+        <div><span>3、审核不通过将不会专门通知，请知悉。</span></div>
+        <div><span>4、批量域名可以直接联系拍卖师微信提交。</span></div>
+
+        <div><span class="text-bold">一、微信提交身份验证格式</span></div>
+        <div><span>微信昵称：</span></div>
+        <div><span>微信号：</span></div>
+        <div><span>QQ号：</span></div>
+        <div><span>邮箱：</span></div>
+        <div><span>真实姓名：</span></div>
+        <div><span>支付宝账号：</span></div>
+        <div><span>手机：</span></div>
+        <div><span>代表域名：</span></div>
+        <div><span>身份验证信息请提交</span></div>
+        <div><span>微信：******   QQ: ******</span></div>
+
+        <div><span class="text-bold">二、提交域名格式</span></div>
+        <div><span>身份验证通过后像拍卖师索要微信参拍报名表。</span></div>
+
+        <div><span class="text-bold">域名要求：</span></div>
+        <div><span>1、参拍域名优先采用ennme.com、22.cn、mincang.com平台域名</span></div>
+        <div><span>（.cn注册满10天，上述平台域名拍卖当天距离域名到期3天以上）。</span></div>
+        <div><span>2、其他外部平台域名注册满60天，到期前30天，</span></div>
+        <div><span>且域名处于正常可转移状态。</span></div>
+
+    </div>
+
+</div>
+</body>
+</html>

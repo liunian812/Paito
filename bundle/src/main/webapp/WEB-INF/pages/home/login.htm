@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <![endif]-->
+    <meta name="robots" content="noodp, noydir" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="拍兔、拍卖、域名、米" name="keywords">
+    <meta content="拍兔，中小域名拍卖平台" name="description">
+    <meta name="data-spm" content="5176"/>
+    <title>拍兔-帐号登录</title>
+    <!-- Bootstrap -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/paito/iconfont.css" rel="stylesheet">
+    <link href="../../css/paito/paito-login.css" rel="stylesheet"/>
+</head>
+<body class="paito-login-body">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <img src="../../imgs/smalllogo.jpg">
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://paito.to/home/register.shtml">注册</a></li>
+                    <li><a href="https://paito.to/home/abooutus.shtml">关于我们</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="content y-row" data-spm="2">
+
+        <div id="login-module">
+            <div id="login-wrap" class="login-static nc-outer-box">
+                <form id="login-form" action="/home/doLogin.action" name="login-form" method="post" class="form clr style-type-vertical">
+
+                    <div id="login-loading" class="loading-mask">
+                        <div class="loading-icon"></div>
+                        <div class="loading-mask-body"></div>
+                    </div>
+
+                    <div id="login-error" class="form-error notice notice-error">
+                        <span class="icon-notice icon-error"></span>
+                        <span class="notice-descript"></span>
+                    </div>
+
+                    <div id="login-content" class="form clr">
+                        <dl>
+                            <div class="fm-label">
+                                <label>账号密码登录</label>
+                            </div>
+                        </dl>
+                        <dl>
+                            <dd id="fm-login-id-wrap" class="fm-field" style="position: relative;">
+                                <div class="fm-field-wrap">
+                                    <label for="Paito_username"> <i class="iconfont" title="会员名">&#xe62d;</i></label>
+                                    <input id="Paito_username" class="fm-text" name="nickName" tabindex="1" placeholder="登陆用户名" value="" autocomplete="off" autocorrect="off" autocapitalize="off">
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd id="fm-login-password-wrap" class="fm-field">
+                                <div class="fm-field-wrap">
+                                    <label for="fm-login-password"><i class="iconfont" title="密码">&#xe6de;</i> </label>
+                                    <input id="fm-login-password" class="fm-text" type="password" name="loginpsd" tabindex="2" autocomplete="off" placeholder="登录密码" autocorrect="off" autocapitalize="off">
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="fm-login-checkcode-nc">
+                            <dt id="fm-login-checkcode-title" class="about-checkcode fm-label">
+                                <label for="fm-login-checkcode">验证码:</label>
+                            </dt>
+                            <dd id="fm-login-checkcode-wrap" class="about-checkcode fm-field">
+                                <div class="fm-field-wrap clr">
+                                    <input type="text" id="fm-login-checkcode" tabindex="3" maxlength="4" name="checkcode" class="fm-text fm-checkcode" autocorrect="off" autocapitalize="off">
+                                    <span id="fm-login-checkcode-img" class="fm-checkcode-img"></span>
+                                    <a id="fm-login-checkcode-update" href="javascript:void(0);" class="fm-checkcode-update" data-spm-protocol="i">刷新</a>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div id="login-submit">
+                        <input type="hidden" name="event_submit_do_login" value="submit">
+                        <input id="fm-login-submit" value="登  录" class="fm-button fm-submit" type="submit" tabindex="4" name="submit-btn">
+                    </div>
+                </form>
+            </div>
+
+            <div class="login-links">
+                <a href="http://pai.to/home/register.shtml?from=login" target="_blank">注册新账号？</a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>
+</html>

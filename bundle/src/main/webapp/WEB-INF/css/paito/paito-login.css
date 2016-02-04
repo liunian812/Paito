@@ -1,0 +1,150 @@
+body {
+    font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "\5B8B\4F53" !important;
+}
+
+.content {
+    position: relative;
+    min-height: 485px;
+    vertical-align: middle;
+    background: url("../../imgs/login-bg-banner.jpg");
+}
+.y-row {
+    min-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    zoom: 1;
+}
+
+.content #login-banner {
+    float: right;
+    margin-right: 628px;
+}
+
+.content #login-module {
+    position: absolute;
+    left: 160px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    min-width: 292px;
+    min-height: 260px;
+    z-index: 2;
+    margin-top: 100px;
+}
+
+#login-wrap {
+    position: relative;
+}
+
+#login-form {
+    position: relative;
+    font: 400 12px arial;
+}
+.style-type-vertical {
+    width: 250px;
+    margin: 0 auto;
+}
+
+
+#login-title {
+    font-size: 16px;
+    font-weight: 700;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.fm-label {
+    padding: 8px 0 2px;
+}
+
+.fm-label-extra {
+    float: right;
+}
+
+#login-content label {
+    font-weight: 700;
+}
+
+.fm-field {
+    margin-top: 20px;
+    position: relative;
+}
+
+#login-content .fm-field-wrap {
+    padding-right: 14px;
+}
+
+#login-content .fm-field-wrap label {
+    display: block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    color: #fff;
+    background: #ddd;
+    text-align: center;
+    position: absolute;
+    left: 1px;
+    top: 6px;
+    outline: 0;
+}
+
+#login-form #account-check-loading {
+    display: none;
+}
+#login-form .loading-mask, #login-form .loading-mask .loading-icon, #login-form .loading-mask .loading-mask-body {
+    height: 90%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+#login-form #login-content .fm-text {
+    border-radius: 3px;
+    line-height: 18px;
+    padding: 8px 5px;
+    margin-top: 7px;
+    font-size: 14px;
+    background: transparent;
+    margin-left: 37px;
+    width: 85%;
+    border: 1px solid #ddd;
+}
+
+#login-form .about-checkcode {
+    display: none;
+}
+
+.fm-login-checkcode-wrap {
+    padding-top: 8px;
+}
+
+.style-type-vertical #fm-login-submit {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.fm-button {
+    display: inline-block;
+    min-width: 140px;
+    height: 36px;
+    padding: 0 30px 1px;
+    background: #FF2F2F;
+    border: none;
+    line-height: 32px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.login-links {
+    margin-top: 15px;
+    overflow: hidden;
+    line-height: 14px;
+    text-align: center;
+}

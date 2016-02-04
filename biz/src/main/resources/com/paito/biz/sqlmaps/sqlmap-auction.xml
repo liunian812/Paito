@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AuctionDAO">
+
+    <select id="findAuctionList" parameterType="java.util.Map" resultType="AuctionDO">
+        select
+        id id,
+        domain domain,
+        domainSuffix domainSuffix,
+        description description,
+        platform platform,
+        expireTime expireTime,
+        basePrice basePrice,
+        mobileno mobileno,
+        weixin weixin,
+        status status,
+        userId userId,
+        auditTime auditTime,
+        createTime createTime,
+        updateTime updateTime,
+        auditorId auditorId
+        from paito_auction
+        where 1=1
+        <if test="userId != null">
+            AND userId = #{userId}
+        </if>
+        <if test="status != null">
+            AND status = #{status}
+        </if>
+    </select>
+
+    <insert id="saveAuction" parameterType="AuctionDO" useGeneratedKeys="true" keyProperty="id">
+        insert into paito_auction (domain,createTime,updateTime , domainSuffix, description,
+        platform,expireTime,basePrice,mobileno, weixin, status,userId, auditTime, auditorId)
+        values (#{domain}, now(), now(), #{domainSuffix}, #{description}, #{platform},
+         #{expireTime},#{basePrice}, #{mobileno}, #{weixin},1,#{userId},NULL ,NULL )
+    </insert>
+
+    <update id="auditAuction" parameterType="AuctionDO">
+        update paito_auction
+        set status = #{status},updateTime=now(),auditTime=now(),auditorId=#{auditorId}
+        where id = #{userId}
+    </update>
+
+</mapper>

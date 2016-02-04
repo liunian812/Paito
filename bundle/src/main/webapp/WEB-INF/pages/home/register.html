@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="拍兔、拍卖、域名、米" name="keywords">
+        <meta content="拍兔，中小域名拍卖平台" name="description">
+        <title>拍兔-账号注册</title>
+        <!-- Bootstrap -->
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/paito/iconfont.css" rel="stylesheet">
+        <link href="../../css/paito/paito-register.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+        <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../js/paito/register.js" />
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../../js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                        <img src="../../imgs/smalllogo.jpg">
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="http://paito.to/home//login.shtml">已有账号登录</a></li>
+                        <li><a href="http://paito.to/home/aboutpaito.shtml">关于我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="page">
+            <div class="form-list form-main-list">
+                    <form id="J_InfoForm" method="post" action="/home/doregister.json">
+                        <div class="form-group">
+                            <div class="form-item">
+                                <label for="nickName"> <i class="iconfont" title="会员名">&#xe62d;</i></label>
+                                <input class="form-text" type="text" id="nickName" name="nickName"  size="20" maxlength="20" placeholder="请输入用户名" onblur="checkAccountName();" />
+                                <div class="nick-suggest-container">
+                                    <span class="msg-type-error" id="name_err_fir" >（账号名以字母开头，字母与数字，_为合法输入,长度大于6位小于19位）</span>
+                                    <span class="msg-type-error" id="name_err_sec">（该账号名已被使用）</span>
+                                    <span class="msg-type-ok" id="name_suc">（可使用）</span>
+                                </div>
+
+                                <div class="nick-size" id="J_NickSize" style="visibility: hidden;">{size} <span class="tsl" data-phase-id="r_ui_nickCountTip">字符</span></div>
+                            </div>
+                            <div class="form-item">
+                                <label for="loginpsd"><i class="iconfont" title="密码">&#xe6de;</i> </label>
+                                <input class="form-text"  id="loginpsd" type="password" placeholder="请设置用户密码" name="loginpsd" value="" data-inner_placeholder="r_p_input_enterPassword" size="20" maxlength="20" onblur="checkAccountPass();">
+                                <span class="msg-type-error" id="pass_err_fir" >(密码要含有字母且长度大于6位小于20位)</span>
+                                <span class="msg-type-ok" id="pass_suc">（可使用）</span>
+                            </div>
+                            <div class="form-item">
+                                <label for="repassword"><i class="iconfont" title="密码">&#xe6de;</i> </label>
+                                <input class="form-text" id="repassword" name="repassword" type="password" placeholder="请再次输入你的密码" value="" data-inner_placeholder="r_p_input_reEnterPassword" data-outer_placeholder="r_p_input_reEnterPwd" size="20"  maxlength="20" onblur="checkConfirmAccountPass();" />
+                                <span class="msg-type-error" id="passCon_err_fir" >（密码要含有字母且大于6位）</span>
+                                <span class="msg-type-error" id="passCon_err_sec" >（确认密码与密码不一致）</span>
+                                <span class="msg-type-ok" id="passCon_suc">（可使用）</span>
+                            </div>
+                            <div class="form-item">
+                                <div class="mobile-text">
+                                    <label for="repassword"><i class="iconfont" title="手机号码">&#xe62e;</i> </label>
+                                    <input class="form-text mobile-text-input" size="20" maxlength="20" name="mobilePhone" id="mobilePhone" data-pattern="^(86){0,1}1\d{10}$" type="text" value="" data-inner_placeholder="r_p_input_inner_entermobile" placeholder="请输入手机号码" onblur="checkUserPhone();">
+                                    <span class="msg-type-error" id="userPhone_err" >（手机号码必须是11位数字）</span>
+                                    <span class="msg-type-ok" id="userPhone_suc">（可使用）</span>
+                                </div>
+                            </div>
+                            <div class="form-item">
+                                <input class="verifycode-text-input" id="verifycode" name="verifycode" type="text" placeholder="请输入短信验证码" value="" size="10"  maxlength="10" onblur="checkVerifyCode();" />
+                                <button type="button" class="btn-gray btn-small-gray" data-phase-id="r_p_next" id="J_BtnGetVerifyCode" onclick="getVerifyCode();">点击获取验证码</button>
+                                <span class="msg-type-ok" id="verifyMsg_sendOk">（验证码已发送，请查收短信）</span>
+                                <span class="msg-type-error" id="verifyMsg_checkerror">（验证码错误）</span>
+                            </div>
+
+                            <div class="form-item">
+                                <button type="submit" class="btn btn-large tsl" data-phase-id="r_p_next" id="J_BtnInfoForm">立即注册</button>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+            <div class="form-main-list-right">
+                <img src="../../imgs/qcode.png" />
+            </div>
+
+
+            <!--手机验证START-->
+            <div class="ks-dialog mobile-check" id="J_MobileCheck" style="left: 135px; top: 21.5px;">
+                <div class="ks-dialog-content">
+                    <a href="javascript:void('close')" class="ks-dialog-close ks-overlay-close" role="button">
+                        <span class="iconfont ks-dialog-close-x ks-overlay-close-x">㐲</span>
+                    </a>
+                    <div class="ks-dialog-header">
+                        <h3 class="tsl" data-phase-id="r_p_fillCheckcode">验证手机</h3>
+                        <div class="msg tsl" data-phase-id="r_p_checkcodeSentTip" data-type="info" data-show="1" id="J_MsgCodeTitle">
+                            验证码已经送到你的手机，15分钟内输入有效，请勿泄露
+                        </div>
+                    </div>
+                    <div class="ks-dialog-body">
+                        <form action="" method="post" id="J_MobileCodeForm">
+                            <div class="form-list">
+                                <div class="form-group">
+                                    <div class="form-item">
+                                        <span class="form-label tsl" data-phase-id="r_p_mobileNum">手机号</span>
+                                        <span id="J_MobileNumber"></span>
+                                    </div>
+                                    <div class="form-item">
+                                        <span class="form-label tsl" data-phase-id="r_p_checkcode">验证码</span>
+                                        <input class="form-text checkcode-text" type="text" name="code" value="" id="J_MobileCode">
+                                        <button class="btn btn-white btn-weak tsl" type="button" id="J_BtnMobileCode" data-phase-id="r_p_getCheckcodeTip">免费获取验证码</button>
+                                        <div class="msg msg-type-info" data-type="info" data-show="0" id="J_MsgResendCode" data-display="block"><i class="iconfont">󰅂</i><div class="msg-tit"></div><div class="msg-cnt"></div></div>
+                                    </div>
+                                    <div class="form-item">
+                                        <button class="btn btn-normal tsl" data-phase-id="r_p_confirm" type="submit">确认</button>
+                                        <div class="msg" data-show="0" id="J_MsgMobileCodeForm"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--手机验证END-->
+
+
+
+            <script type="text/javascript">
+                var UA_Opt = new Object;
+                UA_Opt.isSendError = 1;
+                UA_Opt.FormId = "J_EmailForm";
+                UA_Opt.ExTarget = [ 'J_Password', 'J_RePassword'];
+                UA_Opt.SendMethod = 15;
+                UA_Opt.MaxKSLog = 10;
+                UA_Opt.MaxMCLog = 10;
+                UA_Opt.MaxMPLog = 10;
+                UA_Opt.MPInterval = 50;
+                UA_Opt.MaxFocusLog = 10;
+                UA_Opt.MaxGPLog = 10;
+                UA_Opt.MaxTcLog = 10;
+                UA_Opt.Token = new Date().getTime() + ":" + Math.random();
+                UA_Opt.Flag = 2097151;
+            </script>
+
+            <!-- UE -->
+
+
+            <!-- 页脚 -->
+            <!-- 页脚 -->
+
+
+            <script type="text/javascript">
+
+                TRLang = {
+                    r_ui_recommendNickTip : '推荐使用',
+
+                    ERROR_THIRDPARTY_ILLEGAL_PARAM : '输入的个性化信息错误',
+                    ERROR_THIRDPARTY_GENERAL_FAILURE : '网络繁忙，请稍后再试',
+                    ERROR_THIRDPARTY_GENERAL_BANNED_WORDS : '您输入的信息包含违禁词',
+                    ERROR_THIRDPARTY_GENERAL_INVALID_CHARACTER : '您输入的信息包含非法字符',
+                    ERROR_GENERAL_MOBILEPHONE_EMPTY : '请输入你的手机号码',
+                    ERROR_GENERAL_MOBILE_MALFORM : '手机号码格式不正确，请重新输入',
+                    ERROR_REGISTER_MOBILE_IN_BLACK : '此手机号码注册频率过高，建议更换',
+                    ERROR_REGISTER_MOBILE_UNAVAILABLE : '此手机号码绑定的帐户数已达上限，请更换',
+                    ERROR_REGISTER_CHECKCODE_VERIFY_LIMIT : '校验码错误次数已经超过最大次数，请重新获取校验码',
+                    ERROR_REGISTER_CHECKCODE_SEND_LIMIT : '此手机发送校验码已经达到上限，请在24小时后重试',
+                    ERROR_REGISTER_CHECKCODE_SEND_TOO_FREQUENT : '手机校验码发送频率太快，请稍后重试',
+                    ERROR_GENERAL_PHONE_EMPTY : '请输入你的电话/手机号码',
+                    ERROR_GENERAL_PHONE_MALFORM : '电话/手机号码不正确，请重新输入',
+                    ERROR_MALFORM_NICK_NAME : '会员名为5-25字符，不能包含标点等特殊字符',
+                    ERROR_MALFORM_NICK_NAME_TOO_SHORT : '会员名为5-25字符',
+                    ERROR_MALFORM_NICK_NAME_TOO_LONG : '会员名为5-25字符',
+                    ERROR_MALFORM_NICK_NAME_ALL_NUM : '会员名为5-25字符，需要包含字母或者汉字',
+                    ERROR_MISS_NICK_NAME : '请设置会员名',
+                    ERROR_MALFORM_NICK_NAME_INVALID_CHARACTER : '该会员名包含了非法字符{malWord}，请重新输入。',
+                    ERROR_DUP_NICK_NAME : '该会员名已被使用。你可以:<br/>1、重新输入或选择推荐的会员名。<br/>2、使用该会员名<a href=\'{loginLink}\'>登录</a>。'.replace("{loginLink}", "https://passport.alibaba.com/member/extra/login_dispatcher.do"),
+                    ERROR_UNDERLINE : '会员名首位和末位不能是下划线\'_\'',
+                    ERROR_GENERAL_NICK_ALL_NUM : '不能全部为数字',
+                    ERROR_BANNED_WORDS : '会员名不能含有敏感词',
+                    ERROR_PASSWORD_LIKE_NICK : '密码和账户名太相似',
+                    ERROR_MALFORM_PASSWORD : '密码设置不符合要求',
+                    ERROR_MALFORM_PASSWORD_TOO_SHORT : '密码设置不符合要求',
+                    ERROR_MALFORM_PASSWORD_TOO_LONG : '密码设置不符合要求',
+                    ERROR_REGISTER_CHECKCODE_NOT_MATCH : '校验码不正确，请重新输入',
+                    ERROR_REGISTER_CHECKCODE_MALFORM : '校验码是6位数字，请重新输入',
+                    ERROR_IMAGECHECKCODE_EMPTY : '请点击左边的输入框获取验证码',
+                    ERROR_IMAGECHECKCODE_MALFORM : '验证码长度为4位',
+                    ERROR_IMAGECHECKCODE_INVALID : '验证码不正确，请重新输入',
+                    ERROR_GENERAL_IMAGECHECKCODE_NOT_MATCH : '验证码不正确，请重新输入',
+                    ERROR_REGISTER_EMAIL_IN_BLACK : '此邮箱暂不支持作为登录名，请更换',
+                    ERROR_GENERAL_EMAIL_EMPTY : '请输入你的电子邮箱',
+                    ERROR_GENERAL_MISS_MOBILE : '缺少手机号',
+                    ERROR_GENERAL_EMAIL_MALFORM : '邮箱格式不正确，请重新输入',
+                    ERROR_GENERAL_EMAIL_MALFORM_TOO_LONG : '邮箱长度最大为60个字符',
+                    ERROR_GENERAL_USER_NOT_EXISTS : '账户不存在',
+                    ERROR_REGISTER_ACCOUNT_EXIST_IN_CURRENT : '你的账户已经激活',
+                    ERROR_REGISTER_ACCOUNT_EXIST_OTHER_BU : '账户已经存在',
+                    ERROR_REGISTER_NICK_UNAVAILABLE : '会员名不可用',
+                    ERROR_REGISTER_PASSWORD_TOO_SIMPLE : '你的密码过于简单或存在安全风险，请更换',
+                    ERROR_ACTIVATION_UNSUPPORT_USER : '您的账号无法进行业务激活',
+                    GENERIC_FAILURE : '网络繁忙，请稍后再试',
+                    ERROR_GENERAL_OUTER_SYSTEM_FAIL : '网络繁忙，请稍后再试',
+                    ERROR_GENERAL_ILLEGAL_PARAM : '参数错误',
+                    ERROR_FIRSTNAME_EMPTY : '请输入你的英文名',
+                    ERROR_LASTNAME_EMPTY : '请输入你的英文姓',
+                    ERROR_FIRSTNAME_MALFORM : '您的姓中有非英文字符，请输入英文字符',
+                    ERROR_LASTNAME_MALFORM : '您的姓中有非英文字符，请输入英文字符',
+                    ERROR_THIRDPARTY_PARAM_EMPTY : '参数不能为空',
+                    ERROR_THIRDPARTY_PARAM_MALFORM : '参数格式不正确',
+                    TIP_REGISTER_CHECKCODE_SENT : '校验码已发送至你的手机，请查收',
+                    TIP_REGISTER_VOICECHECKCODE_SENT : '电话正在拨出，请您留意接听',
+                    TIP_REGISTER_VOICECHECKCODE_MSG : '如您无法收到短信验证码，请点击\'获取语音验证码\'。我们将给您拨打电话，请您留意接听',
+                    TIP_REGISTER_MOBILECHECKCODE_MSG : '校验码已发送到你的手机，15分钟内输入有效，请勿泄漏',
+                    ERROR_SMS_UPWARD_UNRECEIVED : '未收到验证码。<p>勿关闭窗口，验证成功后会自动跳转 </p>',
+                    ERROR_SMS_UPWARD_ERROR_CODE : '验证失败，请重新发送。<p>勿关闭窗口，验证成功后会自动跳转 </p>',
+                    ERROR_SMS_UPWARD_TIMEOUT : '验证码失效，请 <a id=\'J_reSendUpMsg\' class=\'resend-upmsg\' href=\'javascript:;\'>刷新验证码</a>，重新发送',
+                    ERROR_VOICE_UPWARD_ERROR_CODE : '验证失败，点击再次呼叫我们将向你拨打语音来电',
+                    ERROR_VOICE_UPWARD_TIMEOUT : '验证码失效，请重新获取验证码',
+
+
+                    ERROR_PHONE_EMPTY : '请补全您的联系电话信息',
+                    ERROR_PHONE_AREA_MALFORM : '您的区号格式有误，请输入8位以内的数字',
+                    ERROR_PHONE_NUMBER_MALFORM : '您输入的号码格式有误，请输入14位以内数字或者数字与\'-\'的组合',
+                    ERROR_GENERAL_COMPANY_INVALID : '输入的字符必须是3-60位的中文汉字',
+                    ERROR_GENERAL_ADDRESS_INVALID : '输入的字符必须是5-200位的字符',
+                    ERROR_VOICE_UPWARD_UNRECEIVED : '未收到验证码',
+
+                    ERROR_REGISTER_EMAIL_UNAVAILABLE: '此邮箱作为登录名已存在，请更换邮箱或登录',
+
+                    ERROR_GENERAL_CONFIRM_PASSWORD_NOT_MATCH : '两次密码输入不一致',
+                    ERROR_GENERAL_ILLEGAL_SIGN : '您请求的参数错误，请重新登录后重试',
+                    ERROR_GENERAL_MOBILEPHONE_MALFORM : '手机号码格式不正确，请重新输入',
+                    ERROR_GENERAL_SESSION_TIMEOUT : '会话超时，请重新登录',
+                    ERROR_HAVANA_SERVICE_UNAVAILABLE : '系统错误，请稍后重试',
+                    ERROR_MOBILE_IN_BLACK : '该手机号码注册账号过多，请更换手机号重试',
+                    ERROR_OVER_TIME : '激活链接已过期',
+                    ERROR_SHANG_JIA_RU_ZHU : '您的账号正在审核中,暂不支持登录',
+                    INPUT_ERROR : '参数错误',
+                    TIP_REGISTER_EMAIL_SENT : '发送成功',
+
+                    pwd_level_high : '强',
+                    pwd_level_low : '弱',
+                    pwd_level_medium : '中',
+
+                    r_m2e_verificationCodeSentTip : '重发验证码(%t% s)',
+                    r_ui_pwd_strength : '强度',
+                    r_p_upsmsSendTip : '请勿关闭窗口，验证成功后会自动跳转',
+
+                    ERROR_GENERAL_COMPANY_EMPTY:'公司名称不能为空',
+                    SC_OVERSEA_ERROR_GENERAL_COMPANY_LENGTH:'输入的字符长度必须在3-128位之间',
+                    SC_OVERSEA_ERROR_GENERAL_COMPANY_INVALID:'输入的英文字符',
+
+                    ERROR_ACCOUNTTYPE_EMPTY:'请选择你的角色',
+                    ERROR_PHONE_AREA_EMPTY : '请输入你的区号',
+                    ERROR_PHONE_NUMBER_EMPTY : '请输入你的电话号码',
+                    SC_OVERSEA_ERROR_GENERAL_COUNTRY_EMPTY:'请选择你的国家/省份',
+                    ERROR_GENERAL_NOCAPTCHA_CHECK_ERROR : '滑动验证失败，请重试',
+
+
+                    ERROR_ALIYUN_BIZCAREGORY_EMPTY : '所属行业不能为空',
+
+                    r_p_tip_enterUserName : '建议会员名使用简体中文，方便好记'
+                };
+            </script>
+
+            <div class="msg msg-type-info" data-type="info" data-show="0" id="J_MsgMobile" data-display="block" style="position: absolute; left: 653.5px; top: 345px;"><i class="iconfont">󰅂</i><div class="msg-tit"></div><div class="msg-cnt"></div></div>
+            <div class="msg msg-type-info" data-type="info" data-show="0" id="J_MsgPassword" data-display="block" style="position: absolute; left: 653.5px; top: 143px;"><i class="iconfont">󰅂</i><div class="msg-tit"></div><div class="msg-cnt"></div></div>
+            <div class="msg msg-type-info" data-type="info" data-show="0" id="J_MsgRePassword" data-display="block" style="position: absolute; left: 653.5px; top: 195px;"><i class="iconfont">󰅂</i><div class="msg-tit"></div><div class="msg-cnt"></div></div>
+            <div class="msg msg-type-info" data-type="info" data-show="0" id="J_MsgNick" data-display="block" style="position: absolute; left: 653.5px; top: 91px;"><i class="iconfont">󰅂</i><div class="msg-tit"></div><div class="msg-cnt">5-25个字符，一个汉字为两个字符</div></div>
+        </div>
+    </body>
+</html>

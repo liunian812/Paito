@@ -1,0 +1,80 @@
+.page {
+    width: 100%;
+    color: #3c3c3c;
+    font: 400 12px/1.6 arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;
+    background: #efeaef;
+}
+
+.content {
+    padding: 0;
+}
+
+.img-full {
+    width: 100%;
+    height: 466px;
+}
+
+.paimer-info {
+    background: #f0ad4e;
+    height: 800px;
+}
+
+.paimer-logo{
+    margin-left: 100px;
+    width: 80px;
+    height: 80px;
+}
+
+.paimer-padding {
+    padding-left: 90px;
+}
+
+.paimer-info .paimer-div {
+    padding-right: 850px;
+    float: right;
+    margin-top: 20px;
+}
+
+.paimer-qcode {
+    position:absolute;
+    width: 105px;
+    height: 105px;
+    margin-left: 100px;
+    display: block;
+    margin-top: -125px;
+}
+
+.paimer-div-2 {
+    position: absolute;
+    right: 500px;
+    margin-top: 20px;
+}
+
+
+.paimer-div-3 {
+    position: absolute;
+    right: 150px;
+    margin-top: 20px;
+}
+
+.paimer-jieshao {
+    width: 308px;
+    height: 261px;
+    position:relative;
+}
+
+.paimer-text {
+    margin-top: 20px;
+    display: block;
+}
+
+.paimer-jieshao span {
+    position:absolute;
+    left: 12px;
+    top: 40px;
+    display:block;
+}
+
+.xuxian {
+    margin-left: 120px;
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AccountInfoDAO">
+
+    <select id="getAccountByUserName" parameterType="java.lang.String" resultType="AccountDO">
+        select
+          id userId,
+          createTime createTime,
+          updateTime updateTime,
+          status status,
+          nickName nickName,
+          type accountType,
+          mobileNumber mobileNumber,
+          password,password
+        from paito_user
+        where nickName = #{nickName}
+    </select>
+
+    <insert id="saveAccount" parameterType="AccountDO" useGeneratedKeys="true" keyProperty="id">
+        insert into paito_user (nickName,createTime,updateTime , status, type, mobileNumber, password)
+        values (#{nickName}, now(), now(), #{status}, #{accountType}, #{mobileNumber}, #{password})
+    </insert>
+
+
+    <select id="getAccountInfoByID" parameterType="java.lang.Long" resultType="AccountDO">
+        select
+          id userId,
+          createTime createTime,
+          updateTime updateTime,
+          status status,
+          nickName nickName,
+          type accountType,
+          mobileNumber mobileNumber,
+        from paito_user
+        where id = #{userId}
+    </select>
+
+    <update id="updateAccountInfo" parameterType="AccountDO">
+         update paito_user
+         set status = #{status},updateTime=now()
+         where id = #{userId}
+    </update>
+
+</mapper>

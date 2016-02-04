@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="VerifyMessageDAO">
+
+    <select id="findTop1ByMobileno" parameterType="java.lang.String" resultType="VerifyMessage">
+        select
+        id id,
+        createTime createTime,
+        updateTime updateTime,
+        mobileno mobileno,
+        verifycode verifycode,
+        status usedStatus,
+        userId userId
+        from paito_verifymsg
+        where mobileno = #{mobileno}
+        ORDER BY createTime DESC
+    </select>
+
+    <insert id="saveVerifyMessage" parameterType="VerifyMessage" useGeneratedKeys="true" keyProperty="id">
+        insert into paito_verifymsg (mobileno,createTime,updateTime , status, verifycode, userId)
+        values (#{mobileno}, now(), now(), #{usedStatus}, #{verifycode}, userId)
+    </insert>
+
+    <delete id="deleteVerifyMessage" parameterType="int">
+        delete from paito_verifymsg where id = #{id}
+    </delete>
+
+</mapper>
