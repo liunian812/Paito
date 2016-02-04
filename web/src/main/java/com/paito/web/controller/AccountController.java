@@ -27,7 +27,7 @@ public class AccountController {
     private IVerifyMessageDAO verifyMessageDAO;
 
     @ResponseBody
-    @RequestMapping(value = "/accountInfo.htm", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/accountInfo.json", method = {RequestMethod.GET, RequestMethod.POST})
     public AjaxResult getAccountInfo(){
         LoginUser loginUser = ThreadObjManager.getLoginUser();
         Map<String, Object> dataMap = new HashMap<String, Object>();

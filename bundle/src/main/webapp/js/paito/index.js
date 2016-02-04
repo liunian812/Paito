@@ -262,7 +262,7 @@
 
         /*judge log info*/
         callbackUrl = location.href.indexOf('account.pai.to') < 0 ? '?oauth_callback=' + encodeURIComponent(window.location.href) : '';
-        jQuery('#lnk_login').attr('href','http://pai.to/login/login.htm' + callbackUrl);
+        jQuery('#lnk_login').attr('href','http://pai.to/home/login.shtml' + callbackUrl);
 
         if(window.location.search.indexOf('lang=en') >= 0 ){
             jQuery('.lnk-reg').attr('href',  'http://pai.to/home/register.shtml?lang=en');
@@ -274,7 +274,7 @@
         var showUnLogin = function(){
             jQuery('.paito-login').removeClass('y-hide');
             jQuery('.paito-user').addClass('y-hide');
-            jQuery('.lnk-login').attr('href', 'http://pai.to/login/login.htm' + callbackUrl);
+            jQuery('.lnk-login').attr('href', 'http://pai.to/home/login.shtml' + callbackUrl);
             if(window.location.search.indexOf('lang=en') >= 0 ){
                 jQuery('.lnk-reg').attr('href',  'http://pai.to/home/register.shtml?lang=en');
                 jQuery('#lnk_login').attr('href','http://pai.to/login/login.htm');
@@ -305,37 +305,39 @@
         }
 
         var _ajaxLoadUserInfo = function (callback) {
-
             jQuery.ajax({
-                url: '//pai.to/user/accountInfo.htm',
-                dataType: "jsonp",
-                jsonp:'cback',
-                jsonpCallback: 'paito_account_info'
-            }).done(function (result) {
-
-                if (result.code == 200) {
-                    callback();
-                    var data = result.data;
-                    // todo
-                    /*if (data.messageCount != undefined && parseInt(data.messageCount, 10) != 0) {
-                        jQuery('#mMessageCount').text('(' + data.messageCount + ')');
+                url: '//pai.to:8080/user/accountInfo.json',
+                type: 'post',
+                cache: false,
+                dataType: 'json',
+                success: function () {
+                    if (result.info.ok) {
+                        callback();
+                        var data = result.data;
+                        // todo
+                        /*if (data.messageCount != undefined && parseInt(data.messageCount, 10) != 0) {
+                         jQuery('#mMessageCount').text('(' + data.messageCount + ')');
+                         } else {
+                         jQuery('#mMessageCount').hide();
+                         }*/
+                        jQuery('#lnk_index').css('margin-top', '3px');
                     } else {
-                        jQuery('#mMessageCount').hide();
-                    }*/
-                    jQuery('#lnk_index').css('margin-top', '3px');
-                } else {
+                        showUnLogin();
+                    }
+                },
+                error: function () {
                     showUnLogin();
                 }
-            }).fail(function(){
-                showUnLogin();
             });
-
         }
 
 
 
         if (uid) {
             _changeLoginBtn();
+            _ajaxLoadUserInfo(function () {
+            });
+        } else{
             _ajaxLoadUserInfo(function () {
             });
         }
