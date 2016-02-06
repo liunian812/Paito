@@ -3,7 +3,7 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" threshold="null" debug="null">
 
     <appender name="PROJECT" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="file" value="/Users/patrick/paito-size/paito.log"/>
+        <param name="file" value="/home/a/project/output/paito.log"/>
         <param name="append" value="true"/>
         <param name="encoding" value="UTF-8"/>
         <param name="threshold" value="info"/>
