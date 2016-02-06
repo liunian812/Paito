@@ -176,7 +176,7 @@ function checkUserEmail(){
 function checkVerifyCode(){
 
     var userPhone = $("#mobilePhone").val();
-    var verifyMsg =
+    var verifyMsg = $("#verifycode").val();
     $.post('/validate/checkVerifyMsg.action?mobileno='+userPhone+'&verifyMsg='+verifyMsg, null, function(data){
         if(data.info.ok){
             $("#verifyMsg_checkerror").hide();

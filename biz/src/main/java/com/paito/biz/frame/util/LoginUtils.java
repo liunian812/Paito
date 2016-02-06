@@ -17,10 +17,10 @@ public class LoginUtils {
     public static final boolean isUserLogined(HttpSession session) {
 
         String nk = (String) session.getAttribute(SessionKeys.ATTRIBUTE_NICK);
-        String userIDNum = (String) session.getAttribute(SessionKeys.ATTRIBUTE_USER_ID);
+        Long userIDNum = (Long) session.getAttribute(SessionKeys.ATTRIBUTE_USER_ID);
         String token = (String)session.getAttribute(SessionKeys.ATTRIBUTE_TOKEN);
         // 是否主账户登录
-        if (StringUtils.isBlank(nk) || StringUtils.isBlank(userIDNum) || !Tools.checkToken(token)) {
+        if (StringUtils.isBlank(nk) || null == userIDNum || !Tools.checkToken(token)) {
             return false;
         }
         return true;
@@ -31,7 +31,7 @@ public class LoginUtils {
         LoginUser user = new LoginUser();
 
         Long userId = session.getAttribute(SessionKeys.ATTRIBUTE_USER_ID) != null ?
-                Long.valueOf((String) session.getAttribute(SessionKeys.ATTRIBUTE_USER_ID)) : null;
+                (Long) session.getAttribute(SessionKeys.ATTRIBUTE_USER_ID) : null;
 
         String nickname = session.getAttribute(SessionKeys.ATTRIBUTE_NICK) != null ? (String) session.getAttribute(SessionKeys.ATTRIBUTE_NICK) : null;
 

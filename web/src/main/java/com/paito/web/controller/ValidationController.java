@@ -23,6 +23,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.util.Calendar;
 import java.util.Random;
 
 @SuppressWarnings("serial")
@@ -59,7 +60,10 @@ public class ValidationController{
 		VerifyMessage verifyMessage = verifyMessageDAO.findTop1ByMobileno(mobileno);
 
 		if(null != verifyMessage && verifyMessage.getUsedStatus().equals(0)){
-			if(verifyMsg.equals(verifyMessage.getVerifycode())){
+			Calendar rightNow = Calendar.getInstance();
+			rightNow.add(Calendar.MINUTE, -5);
+			if (verifyMsg.equals(verifyMessage.getVerifycode()) &&
+					rightNow.getTime().before(verifyMessage.getCreateTime())) {
 				return AjaxResult.succResult();
 			}
 		}

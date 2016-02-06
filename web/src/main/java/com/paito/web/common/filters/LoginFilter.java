@@ -1,16 +1,19 @@
-package com.paito.web.common;
+package com.paito.web.common.filters;
 
 import com.paito.biz.auction.dao.IAccountInfoDAO;
 import com.paito.biz.auction.dto.AccountDO;
 import com.paito.biz.auction.dto.LoginUser;
 import com.paito.biz.frame.base.SessionKeys;
 import com.paito.biz.frame.base.ThreadObjManager;
+import com.paito.biz.frame.util.Constants;
 import com.paito.biz.frame.util.LoginUtils;
 import com.paito.biz.frame.util.Tools;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +30,7 @@ public class LoginFilter implements Filter {
     @Autowired
     private IAccountInfoDAO accountInfoDAO;
 
-    private String					redirectUrl = "http://www.paito.com/login/login.html";
+    private String redirectUrl = "http://pai.to/home/login.shtml";
 
     /*
      * (non-Javadoc)
@@ -56,16 +59,14 @@ public class LoginFilter implements Filter {
 
         // 判断用户有没有登录
         if (!LoginUtils.isUserLogined(httpRequest.getSession())) {
-            AjaxResult r = AjaxResult.errorResult("unlogin");
-            httpResponse.getWriter().append(r.toSimpleJsonString());
+            httpResponse.sendRedirect(LoginUtils.getRedirectUrl(httpRequest, redirectUrl+"?redirectURL=", Constants.CHARSET_GBK));
             return;
         }
 
         // 构建用户对象
         LoginUser user = LoginUtils.buildLoginUser(httpRequest.getSession());
         if(null == user){
-            AjaxResult r = AjaxResult.errorResult("unlogin");
-            httpResponse.getWriter().append(r.toSimpleJsonString());
+            httpResponse.sendRedirect(LoginUtils.getRedirectUrl(httpRequest, redirectUrl+"?redirectURL=", Constants.CHARSET_GBK));
             return;
         }
 
@@ -73,8 +74,7 @@ public class LoginFilter implements Filter {
             AccountDO customer= accountInfoDAO.getAccountInfoByID(user.getUserId());
 
             if(customer==null){
-                AjaxResult r = AjaxResult.errorResult("unlogin");
-                httpResponse.getWriter().append(r.toSimpleJsonString());
+                httpResponse.sendRedirect(LoginUtils.getRedirectUrl(httpRequest, redirectUrl+"?redirectURL=", Constants.CHARSET_GBK));
                 return;
             }
             user.setUserStatus(customer.getStatus());

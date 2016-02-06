@@ -44,9 +44,11 @@
         '<!-- Collect the nav links, forms, and other content for toggling -->',
         '<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">',
         '<div class="paito-user y-hide">',
-        '<li><span class="sr-only">欢迎您!</span></li>',
-        '<li><a class="user-uid" target="" href="#"></a></li>',
-        '<li><a  id="lnk_Logout" href="https://pai.to/logout/logout.htm">退出</a></li>',
+        '<ul class="nav navbar-nav navbar-right">',
+        '<li><span style="padding-bottom: 15px;padding-top: 15px;display: block;">欢迎您!</span></li>',
+        '<li><a  class="user-uid" href="#"></a></li>',
+        '<li><a  id="lnk_Logout" href="http://pai.to/home/logout.shtml">退出</a></li>',
+        '</url>',
         '</div>',
         '<div class="paito-login">',
         '<ul class="nav navbar-nav navbar-right">',
@@ -54,7 +56,7 @@
         '<li class="divider"></li>',
         '<li><a class="lnk-reg" target="_self" id="lnk-reg">注册</a></li>',
         '<li class="divider"></li>',
-        '<li><a href="https://paito.to/home/forgetpsd.shtml">忘记密码?</a></li>',
+        '<li><a href="http://pai.to/home/forgetpsd.shtml">忘记密码?</a></li>',
         '</ul>',
         '</div>',
         '</div><!-- /.navbar-collapse -->',
@@ -283,7 +285,7 @@
             }
         };
 
-        var uid = CookieHelper.get('login_userid');
+        var uid = CookieHelper.get('_nk_');
 
         if (uid) {
             uid = decodeURIComponent(uid.replace(/"/g, ''));
@@ -300,21 +302,21 @@
             jQuery('.user-uid').text(uid);
             jQuery('.paito-user').removeClass('y-hide');
             jQuery('.paito-login').addClass('y-hide');
-            jQuery('.user-uid').attr({'href': 'http://account.aliyun/common/header.htm?username=' + uid});
-            jQuery('#lnk_Logout').attr('href', 'http://pai.to/logout/logout.htm' + callbackUrl);
+            jQuery('#lnk_Logout').attr('href', 'http://pai.to/home//login.shtml' + callbackUrl);
         }
 
         var _ajaxLoadUserInfo = function (callback) {
             jQuery.ajax({
-                url: '//pai.to:8080/user/accountInfo.json',
+                url: '//pai.to/user/accountInfo.json',
                 type: 'post',
                 cache: false,
                 dataType: 'json',
-                success: function () {
+                success: function (result) {
                     if (result.info.ok) {
                         callback();
                         var data = result.data;
-                        // todo
+                        uid = data.data.nickname;
+                        _changeLoginBtn();
                         /*if (data.messageCount != undefined && parseInt(data.messageCount, 10) != 0) {
                          jQuery('#mMessageCount').text('(' + data.messageCount + ')');
                          } else {

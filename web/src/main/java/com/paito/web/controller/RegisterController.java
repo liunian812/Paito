@@ -31,12 +31,15 @@ public class RegisterController{
 
 	@Resource
 	private IAccountInfoDAO accountInfoDAO;
+
+	private String indexUrl = "http://pai.to";
 	/**
 	 * 注册(跳转到注册页面)
 	 */
 	@RequestMapping(value = "/register.shtml", method = RequestMethod.GET)
 	public String redirectToRegister(ServletRequest request, ServletResponse response){
-		return "redirect:/pages/register.html";
+		String callback = (String)request.getAttribute("oauth_callback");
+		return "redirect:/pages/register.html?"+callback;
 	}
 
 	/**
@@ -45,8 +48,8 @@ public class RegisterController{
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/doregister.json", method = {RequestMethod.POST})
-	public String doRegister(HttpServletRequest request){
+	@RequestMapping(value = "/doregister.action", method = {RequestMethod.POST,RequestMethod.GET})
+	public void doRegister(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		String nickName = request.getParameter("nickName");
 		String password = request.getParameter("loginpsd");
@@ -77,7 +80,7 @@ public class RegisterController{
 				session.setAttribute(SessionKeys.ATTRIBUTE_TOKEN, Tools.buildToken());
 			}
 		}
-		return "redirect:/index.html";
+		response.sendRedirect(indexUrl);
 	}
 	
 	/*public String validateMail(){logger.info("11111___________");

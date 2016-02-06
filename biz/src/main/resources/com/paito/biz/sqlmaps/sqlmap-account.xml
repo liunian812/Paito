@@ -32,7 +32,7 @@
           status status,
           nickName nickName,
           type accountType,
-          mobileNumber mobileNumber,
+          mobileNumber mobileNumber
         from paito_user
         where id = #{userId}
     </select>

@@ -16,6 +16,7 @@
         from paito_verifymsg
         where mobileno = #{mobileno}
         ORDER BY createTime DESC
+        limit 1
     </select>
 
     <insert id="saveVerifyMessage" parameterType="VerifyMessage" useGeneratedKeys="true" keyProperty="id">

@@ -7,6 +7,8 @@ import com.paito.biz.auction.util.sms.SmsSender;
 import com.paito.biz.frame.base.ThreadObjManager;
 import com.paito.biz.frame.util.Tools;
 import com.paito.web.common.AjaxResult;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +25,7 @@ import java.util.*;
 @RequestMapping("/user")
 public class AccountController {
 
+    private Log log = LogFactory.getLog(AccountController.class);
     @Resource
     private IVerifyMessageDAO verifyMessageDAO;
 
@@ -40,7 +43,7 @@ public class AccountController {
      *
      * @return RegisterMobileResponse
      */
-    @RequestMapping(value = "/sendSms.action", method = RequestMethod.POST)
+    @RequestMapping(value = "/sendSms.action", method = {RequestMethod.POST,RequestMethod.GET})
     @ResponseBody
     public AjaxResult registryMobile(String mobileno) {
 
@@ -59,8 +62,9 @@ public class AccountController {
 
         String msgid = UUID.randomUUID().toString().replaceAll("-", "");
         try {
-            SmsSender.SendSms(mobileno, "【拍兔】正在手机验证!验证码为:" + verifycode + "。");
-        } catch (UnsupportedEncodingException e) {
+            SmsSender.sendSMS(mobileno, "【拍兔】正在手机验证!验证码为:" + verifycode + "。");
+        } catch (Exception e) {
+            log.error("发送手机验证码失败", e);
             e.printStackTrace();
         }
         return AjaxResult.succResult();
@@ -68,7 +72,6 @@ public class AccountController {
 
     private void saveVerifyMessage(String mobileno,String verifycode){
         VerifyMessage verifyMessage = new VerifyMessage(mobileno, verifycode);
-        verifyMessage.setUserId(ThreadObjManager.getLoginUser().getUserId());
         verifyMessage.setUsedStatus(0);
         verifyMessageDAO.saveVerifyMessage(verifyMessage);
     }

@@ -1,0 +1,32 @@
+.J_bottom {
+    width: 100%;
+    height: 420px;
+    background: url("../../imgs/index-bottom.jpg");
+    margin-top: 40px;
+    margin-top: 50px;
+}
+
+.paito-bottom-logo {
+    width: 60px;
+    height: 60px;
+    margin-left: 600px;
+    position: relative;
+    margin-top: -30px;
+}
+
+.paito-bottom {
+    margin-top: -30px;
+    width: 100%;
+}
+
+
+.paito-bottom-arrow {
+    margin-left: 300px;
+    position: absolute;
+    margin-top: -40px;
+}
+
+.paito-bottom-totop {
+    margin-left: 300px;
+    position: absolute;
+}

@@ -63,7 +63,7 @@ public class SmsSender  {
 		return result;
 	}
 
-	public static void sendSMS(String mobileno, String text, String msgid) {
+	public static void sendSMS(String mobileno, String text) {
 		HttpClient client = new HttpClient();
 		PostMethod post = new PostMethod("http://gbk.sms.webchinese.cn");
 		post.addRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=gbk");//在头文件中设置转码

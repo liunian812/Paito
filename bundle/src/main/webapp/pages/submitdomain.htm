@@ -18,6 +18,7 @@
     <script src="../js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/paito/submitdomain.js"></script>
 
 </head>
 
@@ -33,7 +34,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://paito.to/home/aboutpaito.shtml">关于我们</a></li>
+                <li><a href="http://pai.to/">首页</a></li>
+                <li><a href="http://pai.to/home/aboutpaito.shtml">关于我们</a></li>
             </ul>
         </div>
     </div>
@@ -41,16 +43,17 @@
 
 <div class="page">
     <div class="form-main-list">
-        <img src="../../WEB-INF/imgs/status-1.jpg" />
+        <img src="../imgs/status-1.jpg" id="status1" name="status1"/>
+        <img hidden src="../imgs/status-2.jpg" id="status2" name="status2" />
     </div>
     <div class="form-list form-main-list">
-        <form id="J_InfoForm" method="post" action="/auction/submitdomain.json">
+
             <div class="form-group">
                 <div class="form-item">
                     <span class="span-left">域名：</span>
                     <input class="form-text form-text-left" type="text" id="domain" name="domain"  size="20" maxlength="20" placeholder="请输入域名"  />
                     <span>后缀：</span>
-                    <select name="select-domain" id="select-domain" class="form-select">
+                    <select name="domainSuffix" id="domainSuffix" class="form-select">
                         <option value="com">.com</option>
                         <option value="net">.net</option>
                         <option value="cn">.cn</option>
@@ -60,11 +63,11 @@
                 </div>
                 <div class="form-item">
                     <span>域名简介：</span>
-                    <input class="form-text"  id="domainDes" type="text" placeholder="请输入域名含义简介" name="domainDes" size="20" maxlength="20" />
+                    <input class="form-text"  id="description" type="text" placeholder="请输入域名含义简介" name="description" size="20" maxlength="20" />
                 </div>
                 <div class="form-item">
                     <span class="span-left"> 平台：</span>
-                    <select name="select-domainPlatform" id="select-domainPlatform" class="form-text-select form-text-left">
+                    <select name="platform" id="platform" class="form-text-select form-text-left">
                         <option value="">请选择...</option>
                         <option value="ennme">ennme.com</option>
                         <option value="22cn">22.cn</option>
@@ -77,30 +80,29 @@
                 </div>
                 <div class="form-item">
                     <span>保留价：</span>
-                    <input class="form-text form-text-left" size="20" maxlength="20" name="reservePrice" id="reservePrice" type="text" placeholder="请输入保留价" >
+                    <input class="form-text form-text-left" size="20" maxlength="20" name="basePrice" id="basePrice" type="text" placeholder="请输入保留价" >元
                 </div>
                 <div class="form-item">
                     <div class="mobile-text">
                         <span>手机号：</span>
-                        <input class="form-text form-text-left" size="20" maxlength="20" name="mobilePhone" id="mobilePhone" data-pattern="^(86){0,1}1\d{10}$" type="text" value="" data-inner_placeholder="r_p_input_inner_entermobile" placeholder="请输入手机号" onblur="checkUserPhone();">
+                        <input class="form-text form-text-left" size="20" maxlength="20" name="mobileno" id="mobileno" data-pattern="^(86){0,1}1\d{10}$" type="text" value="" data-inner_placeholder="r_p_input_inner_entermobile" placeholder="请输入手机号" onblur="checkUserPhone();">
                         <span class="msg-type-error" id="userPhone_err" >（手机号码必须是11位数字）</span>
-                        <span class="msg-type-ok" id="userPhone_suc">（可使用）</span>
                     </div>
                 </div>
                 <div class="form-item">
                     <span>微信号：</span>
-                    <input class="form-text form-text-left" size="20" maxlength="20" name="weixinNick" id="weixinNick" type="text" placeholder="请输入微信号" >
+                    <input class="form-text form-text-left" size="20" maxlength="20" name="weixin" id="weixin" type="text" placeholder="请输入微信号" >
                 </div>
                 <div class="form-item">
                     <button type="submit" class="btn-yellow" data-phase-id="r_p_next" id="J_BtnGetVerifyCode" onclick="getVerifyCode();">获取验证码</button>
-                    <input class="form-text" id="verifycode" name="verifycode" type="text" placeholder="请输入短信验证码" value="" size="10"  maxlength="10" onblur="checkVerifyCode();" />
+                    <input class="form-text" id="verifycode" name="verifycode" type="text" placeholder="请输入短信验证码" value="" size="10"  maxlength="10"/>
                 </div>
 
                 <div class="form-item">
-                    <button type="submit" class="btn btn-large" data-phase-id="r_p_next" id="J_BtnInfoForm">立即提交</button>
+                    <button type="submit" class="btn btn-large" data-phase-id="r_p_next" id="J_BtnInfoForm" onclick="submitDomain();">立即提交</button>
                 </div>
             </div>
-        </form>
+
     </div>
     <div class="form-main-list-right">
         <div><span class="text-bold">线上提交注意事项：</span></div>
@@ -134,4 +136,5 @@
 
 </div>
 </body>
+<object style="width: 100%; height: 500px;" type="text/html" data="../pages/common/bottom.htm"></object>
 </html>

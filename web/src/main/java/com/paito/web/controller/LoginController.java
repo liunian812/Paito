@@ -34,6 +34,8 @@ public class LoginController {
 	@Resource
 	private IAccountInfoDAO accountInfoDAO;
 
+	private String indexUrl = "http://pai.to";
+
 	/**
 	 * 用户登出
 	 * @return
@@ -43,7 +45,7 @@ public class LoginController {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		ThreadObjManager.clear();
 		httpRequest.getSession().invalidate();
-		return "redirect:/index.html";
+		return "redirect:" + indexUrl;
 	}
 
 	@RequestMapping(value = "/login.shtml", method = RequestMethod.GET)
@@ -52,8 +54,8 @@ public class LoginController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/doLogin.action", method = {RequestMethod.POST})
-	public String doLogin(HttpServletRequest request){
+	@RequestMapping(value = "/doLogin.action", method = {RequestMethod.POST, RequestMethod.GET})
+	public void doLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		String nickName = request.getParameter("nickName");
 		String password = request.getParameter("loginpsd");
@@ -69,8 +71,7 @@ public class LoginController {
 				session.setAttribute(SessionKeys.ATTRIBUTE_TOKEN, Tools.buildToken());
 			}
 		}
-
-		return "redirect:/index.html";
+		response.sendRedirect(indexUrl);
 	}
 	
 }

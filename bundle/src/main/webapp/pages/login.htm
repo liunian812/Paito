@@ -31,8 +31,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="https://paito.to/home/register.shtml">注册</a></li>
-                    <li><a href="https://paito.to/home/abooutus.shtml">关于我们</a></li>
+                    <li><a href="http://pai.to/home/register.shtml">注册</a></li>
+                    <li><a href="http://pai.to/home/aboutpaito.shtml">关于我们</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -43,11 +43,6 @@
         <div id="login-module">
             <div id="login-wrap" class="login-static nc-outer-box">
                 <form id="login-form" action="/home/doLogin.action" name="login-form" method="post" class="form clr style-type-vertical">
-
-                    <div id="login-loading" class="loading-mask">
-                        <div class="loading-icon"></div>
-                        <div class="loading-mask-body"></div>
-                    </div>
 
                     <div id="login-error" class="form-error notice notice-error">
                         <span class="icon-notice icon-error"></span>
@@ -91,8 +86,7 @@
                     </div>
 
                     <div id="login-submit">
-                        <input type="hidden" name="event_submit_do_login" value="submit">
-                        <input id="fm-login-submit" value="登  录" class="fm-button fm-submit" type="submit" tabindex="4" name="submit-btn">
+                        <button type="submit" class="fm-button fm-submit" data-phase-id="r_p_next" id="fm-login-submit" tabindex="4" name="submit-btn">登  录</button>
                     </div>
                 </form>
             </div>
@@ -107,4 +101,5 @@
     </div>
 
 </body>
+<object style="width: 100%; height: 500px;" type="text/html" data="../pages/common/bottom.htm"></object>
 </html>
