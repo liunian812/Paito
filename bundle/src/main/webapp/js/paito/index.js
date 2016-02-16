@@ -61,7 +61,82 @@
         '</div>',
         '</div><!-- /.navbar-collapse -->',
         '</div><!-- /.container-fluid -->',
-        '</nav>'].join('');
+        '</nav>',
+        '<div data-spm="2">',
+        '<div class="paito-common-header">',
+        '<div class="paito-common-header-inner common-header-clearfix">',
+        '<div class="activity item pull-left" style="width: 268px;">',
+        '<div class="image-wrap" id="J-ali-activity-img">',
+        '</div>',
+        '</div>',
+        '<!-- 导航菜单 -->',
+        '<ul class="menu item pull-left" id="J_common_header_menu" data-spm="201">',
+    '<li class="top-menu-item" has-dropdown="true" menu-type="about" data-spm-click="gostr=/paito;locaid=">',
+    '<a class="menu-hd" href="http://pai.to/home/aboutpaito.shtml" target="_blank" >关于拍兔</a>',
+    '</li>',
+    '<li class="top-menu-item" has-dropdown="true" menu-type="commit" data-spm-click="gostr=/paito;locaid=">',
+    '<a class="menu-hd" href="http://pai.to/home/uploaddomain.json" target="_blank" >域名提交</a>',
+    '</li>',
+    '<li class="top-menu-item" has-dropdown="true" menu-type="rule" data-spm-click="gostr=/paito;locaid=">',
+    '<a class="menu-hd" href="http://pai.to/home/paimairule.shtml" target="_blank" >拍卖规则</a>',
+    '</li>',
+    '<li class="top-menu-item" has-dropdown="true" menu-type="product" data-spm-click="">',
+    '<a class="menu-hd" href="http://pai.to/paimai.html" target="_blank" >域名拍卖</a>',
+    '</li>',
+    '</ul>',
+    '</div>',
+    '</div>',
+    '</div>',
+    '<div id="J_slider" data-spm="3">',
+    '<a href="#" target="_blank" num="0">',
+    '<img class="banner" src="imgs/banner.jpg">',
+    '<img src="imgs/index-float-text.png" class="banner-float">',
+    '</a>',
+    '<div class="nav">',
+    '<i num="0" class="action"></i>',
+    '</div>',
+    '</div>',
+    '<!--<div class="ali-mian-notice" id="J_notice">',
+    '<div class="y-row">',
+    '<div class="y-span1" style="text-align: right;">',
+    '<img src="imgs/horn.jpg">',
+    '</div>',
+    '<div class="y-span3">',
+    '<span>·&nbsp;</span>',
+    '</div>',
+    '<div class="y-span3">',
+    '<span>·&nbsp;</span>',
+    '</div>',
+    '<div class="y-span3">',
+    '<span>·&nbsp;</span>',
+    '</div>',
+    '<div class="y-span2 y-last">',
+    '<a href="http://pai.to/noticelist.html" target="_blank">',
+    '更多&gt;&gt;',
+    '</a>',
+    '</div>',
+    '</div>',
+    '</div>-->',
+    '<div id="J_liucheng" data-spm="4">',
+    '<img src="imgs/index-liucheng.jpg" class="img-liucheng">',
+    '</div>',
+    '<div id="J_yuming" data-spm="5" class="J_yuming">',
+    '<div>',
+    '<span style="font-size: larger;font-weight: bold; ">本期热门域名竞猜</span>',
+    '<span style="position: relative;float: right;padding-right: 500px; color: red">每周二、周六22:00开拍</span>',
+    '</div>',
+    '<div id="J_nodata-notic" class="y-hide">',
+    '<img src="imgs/bg-white.png" style="float: left;">',
+    '<span class="nodata_span_text">暂无数据，敬请期待!</span>',
+    '</div>',
+    '<div class="table-responsive paito-table y-hide" id="J_domaintable">',
+    '</div>',
+    '<div id="J_contract" class="contract">',
+    '<img src="imgs/kefu.png" class="kefu">',
+    '<img src="imgs/weixin.png" class="weixin">',
+    '</div>',
+    '</div>'
+    ].join('');
 
 
     document.write(html);
@@ -285,6 +360,11 @@
             }
         };
 
+        var showNoAuction = function(){
+            jQuery('.J_nodata-notic').removeClass('y-hide');
+            jQuery('.J_domaintable').addClass('y-hide');
+        };
+
         var uid = CookieHelper.get('_nk_');
 
         if (uid) {
@@ -307,7 +387,7 @@
 
         var _ajaxLoadUserInfo = function (callback) {
             jQuery.ajax({
-                url: '//pai.to/user/accountInfo.json',
+                url: '/user/accountInfo.json',
                 type: 'post',
                 cache: false,
                 dataType: 'json',
@@ -333,6 +413,53 @@
             });
         }
 
+        var _ajaxLoadAuctionList = function(callback){
+            jQuery.ajax({
+                url: '/auction/findAuctionList.action',
+                type: 'post',
+                cache: false,
+                dataType: 'json',
+                success: function (result) {
+                    if (result.info.ok) {
+                        var data = result.data;
+                        var auctionList = data.auctionList;
+                        if(auctionList){
+                            var str = "<table>";
+                            str += '<table class="table table-bordered">';
+                            str += '<thead class="thread-border">';
+                            str += '<tr>';
+                            str += '<th class="col-md-3 col-1">热门域名</th>';
+                            str += '<th class="col-md-3 col-2">含义</th>';
+                            str += '<th class="col-md-3 col-1">预计成交价</th>';
+                            str += '<th class="col-md-3 col-2">竞猜成交价</th>';
+                            str += '</tr>';
+                            str += '</thead>';
+                            str += '<tbody>';
+                            for (var i = 0, l = auctionList.length; i < l; i++) {
+                                var one = auctionList[i];
+                                str += "<tr>";
+                                str += "<td>"+one.domain +"."+one.domainSuffix+"</td>";
+                                str += "<td>"+one.description+"</td>";
+                                str += "<td>"+one.basePrice+"</td>";
+                                str += "<td></td>";
+                                str += "</tr>";
+                            };
+                            str += "</tbody>";
+                            str += "</table>";
+                            document.getElementById("J_domaintable").innerHTML = str;
+                            jQuery('#J_domaintable').removeClass('y-hide');
+                            jQuery('#J_nodata-notic').addClass('y-hide');
+                        }
+                    } else {
+                        showNoAuction();
+                    }
+                },
+                error: function () {
+                    showNoAuction();
+                }
+            });
+        }
+
 
 
         if (uid) {
@@ -343,6 +470,10 @@
             _ajaxLoadUserInfo(function () {
             });
         }
+
+        _ajaxLoadAuctionList(function(){
+
+        });
 
     }
 

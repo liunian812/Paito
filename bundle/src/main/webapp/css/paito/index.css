@@ -167,8 +167,10 @@
 }
 
 .contract {
-    padding-right: 150px;
     float: right;
+    width: 276px;
+    margin-right: 50px;
+    margin-left: 50px;
 }
 
 .weixin {
@@ -180,7 +182,7 @@
 }
 
 .paito-table {
-    width: 700px;
+    width: 800px;
     height: 445px;
     float: left;
 }
@@ -193,7 +195,8 @@
 }
 
 .J_yuming {
-    margin-left: 150px;
+    margin-left: 50px;
+    width: 1190px;
 }
 
 .thread-border {
@@ -223,9 +226,9 @@ tr {
 
 .img-liucheng{
     height: 250px;
-    margin-left: 150px;
+    margin-left: 50px;
     margin-right: 150px;
-    width: 1000px;
+    width: 1190px;
 }
 
 .J_pingzhi{

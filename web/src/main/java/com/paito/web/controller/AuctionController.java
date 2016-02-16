@@ -30,4 +30,10 @@ public class AuctionController {
         auctionDAO.saveAuction(auctionDO);
         return AjaxResult.succResult();
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/findAuctionList.action", method = {RequestMethod.GET, RequestMethod.POST})
+    public AjaxResult findAuctionList(){
+        return AjaxResult.succResult("auctionList", auctionDAO.findAuctionListByStatus(AuctionStatusEnum.ON_BIDING.value()));
+    }
 }

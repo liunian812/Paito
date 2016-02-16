@@ -39,6 +39,8 @@ public class AuctionDAOImpl implements IAuctionDAO {
 
     @Override
     public List<AuctionDO> findAuctionListByStatus(Integer status) {
-        return sqlSessionTemplate.selectList("AuctionDAO.findAuctionListByStatus", status);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("status", status);
+        return sqlSessionTemplate.selectList("AuctionDAO.findAuctionList", map);
     }
 }
