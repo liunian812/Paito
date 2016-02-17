@@ -24,7 +24,6 @@
         };
     }
 
-
     var callbackUrl, html;
 
     html = ['<nav class="navbar navbar-default navbar-fixed-top">',
@@ -125,15 +124,15 @@
     '<span style="font-size: larger;font-weight: bold; ">本期热门域名竞猜</span>',
     '<span style="position: relative;float: right;padding-right: 500px; color: red">每周二、周六22:00开拍</span>',
     '</div>',
-    '<div id="J_nodata-notic" class="y-hide">',
+    '<div id="J_nodata-notic">',
     '<img src="imgs/bg-white.png" style="float: left;">',
     '<span class="nodata_span_text">暂无数据，敬请期待!</span>',
     '</div>',
     '<div class="table-responsive paito-table y-hide" id="J_domaintable">',
     '</div>',
     '<div id="J_contract" class="contract">',
-    '<img src="imgs/kefu.png" class="kefu">',
-    '<img src="imgs/weixin.png" class="weixin">',
+    '<img src="imgs/index-contract-icon.jpg" class="kefu" onfocus="showKefuQCode();">',
+    '<img src="imgs/index-weixin-icon.jpg" class="weixin" onfocus="showWeixinQCode();">',
     '</div>',
     '</div>'
     ].join('');
@@ -460,8 +459,6 @@
             });
         }
 
-
-
         if (uid) {
             _changeLoginBtn();
             _ajaxLoadUserInfo(function () {
@@ -506,5 +503,16 @@
 
 
 }).call(this);
+
+function showKefuQCode(){
+    var a="2";
+    alert("2");
+}
+
+function showWeixinQCode(){
+    var b="3";
+    alert("3");
+}
+
 document.write('<style>@media screen and (max-width: 1000px){#LnkNewUserTip{display: none !important;}}.ay-global-topbar{background:#008eb7!important;}#lnk_search{display:none;}#lnk_index{display:none;}#lnk_index_spacing{display:none;}</style>'
 );

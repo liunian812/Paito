@@ -21,6 +21,6 @@ public class Constants {
     //public static final String EMAIL_SEND_URL = "http://172.16.171.80:8180/auction_n";
     //public static final String EMAIL_SEND_URL = "http://wangpai1.staa.com.cn/backup";
     public static final String EMAIL_SEND_URL = "http://www.nbpmzx.com.cn";
-    
+
     public static final String CHARSET_GBK	= "GBK";
 }

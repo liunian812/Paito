@@ -168,13 +168,12 @@
 
 .contract {
     float: right;
-    width: 276px;
-    margin-right: 50px;
-    margin-left: 50px;
+    width: 190px;
+    margin-top: 100px;
 }
 
 .weixin {
-    margin-top: 160px;
+    margin-top: 50px;
 }
 
 .kefu {
@@ -182,7 +181,7 @@
 }
 
 .paito-table {
-    width: 800px;
+    width: 1000px;
     height: 445px;
     float: left;
 }
@@ -197,6 +196,8 @@
 .J_yuming {
     margin-left: 50px;
     width: 1190px;
+    height: 480px;
+    background-color: #f6f6f6;
 }
 
 .thread-border {
@@ -219,7 +220,7 @@ tr {
     float: left;
     font-weight: bolder;
     margin-top: 200px;
-    margin-left: -450px;
+    margin-left: -650px;
     font-size: 16px;
     color: red;
 }
@@ -234,6 +235,20 @@ tr {
 .J_pingzhi{
     width: 1190px;
     height: 649px;
-    margin-left: 50px;
+}
+
+.aligncenter {
+    clear: both;
+    display: block;
+    margin:auto;
+}
+
+.alignleft {
+    display: inline;
+    float: left;
+}
+.alignright {
+    display: inline;
+    float: right;
 }
 

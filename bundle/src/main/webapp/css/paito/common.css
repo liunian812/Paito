@@ -3,7 +3,11 @@
     height: 361px;
     background: url("../../imgs/index-bottom.jpg");
     margin-top: 40px;
-    margin-left: 50px;
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
 }
 
 .paito-bottom-logo {
