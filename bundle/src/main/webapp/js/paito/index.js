@@ -379,7 +379,7 @@
 
 
     if(!window.jQuery){  // 如果没有加载jquery的话，先加载jquery
-        window.Paito.loadScript('js/jquery.min.js',_rander);
+        window.Paito.loadScript('../js/jquery.min.js',_rander);
     }else{
         _rander();
     }

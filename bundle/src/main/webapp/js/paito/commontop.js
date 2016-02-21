@@ -31,16 +31,12 @@
             '<div class="aligncenter paito-daohang-div">',
                 '<!-- Brand and toggle get grouped for better mobile display -->',
                 '<div class="navbar-header">',
-                    '<div class="paito-user y-hide">',
-                        '<ul class="nav navbar-nav">',
-                            '<li><span style="padding-bottom: 15px;padding-top: 15px;display: block;">欢迎您!</span></li>',
-                            '<li><a  class="user-uid" href="#"></a></li>',
-                            '<li><a  id="lnk_Logout" href="http://pai.to/home/logout.shtml">退出</a></li>',
-                            '<li class="divider"></li>',
-                        '</ul>',
-                    '</div>',
                     '<div>',
                         '<ul class="navbar-nav paito-navbar-nav">',
+                            '<li class="paito-user y-hide"><span style="color: #F5EEEE;">欢迎您!</span></li>',
+                            '<li class="paito-user y-hide"><a class="user-uid" href="#"></a></li>',
+                            '<li class="paito-user y-hide"><a id="lnk_Logout" href="http://pai.to/home/logout.shtml">退出</a></li>',
+                            '<li class="divider y-hide paito-user"></li>',
                             '<li><a href="http://pai.to/home/paimairule.shtml">帮助中心</a></li>',
                             '<li class="divider"></li>',
                             '<li><a href="#" onclick="javascript:window.external.AddFavorite("http://pai.to","拍兔")" title="收藏本站到你的收藏夹">收藏</a></li>',
@@ -251,11 +247,10 @@
         });
 
 
-        jQuery('.ay-global-topbar .aliyun-user').bind('mouseenter',function(){
+        jQuery('.paito-user').bind('mouseenter',function(){
             fnTimer = setTimeout(function(){
                 var lnk, menu, lnkPos;
 
-                lnk = jQuery('.lnk-user');
                 menu = jQuery('.user-list');
 
                 lnk.addClass('lnk-user-selected lnk-user-rotate');
@@ -272,10 +267,9 @@
             },250);
         })
 
-        jQuery('.ay-global-topbar .aliyun-user').bind('mouseleave', function () {
+        jQuery('.paito-user').bind('mouseleave', function () {
             clearTimeout(fnTimer);
             var lnk, menu;
-            lnk = jQuery('.lnk-user');
             menu = jQuery('.user-list');
             lnk.removeClass('lnk-user-selected lnk-user-rotate');
 
@@ -395,7 +389,7 @@
 
 
     if(!window.jQuery){  // 如果没有加载jquery的话，先加载jquery
-        window.Paito.loadScript('js/jquery.min.js',_rander);
+        window.Paito.loadScript('../js/jquery.min.js',_rander);
     }else{
         _rander();
     }

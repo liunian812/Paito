@@ -20,6 +20,35 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/paito/submitdomain.js"></script>
 
+<!--    <script src="../js/jquery.ui.core.js" type="text/javascript"></script>
+    <script src="../js/jquery.ui.datepicker.js" type="text/javascript"></script>-->
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $( "#expireTime" ).datepicker();
+        });
+        /*$('#expireTime').DatePicker({
+            format:'Y-m-d',
+            date: $('#expireTime').val(),
+            current: '2016-01-01',
+            starts: 1,
+            position: 'r',
+            onBeforeShow: function(){
+                $('#expireTime').DatePickerSetDate($('#expireTime').val(), true);
+            },
+            onChange: function(formated, dates){
+                $('#expireTime').val(formated);
+                if ($('#closeOnSelect input').attr('checked')) {
+                    $('#expireTime').DatePickerHide();
+                }
+            }
+        });*/
+    </script>
+
 </head>
 
 <body>
@@ -78,7 +107,7 @@
                 </div>
                 <div class="form-item">
                     <span>保质期：</span>
-                    <input class="form-text form-text-left" size="20" maxlength="20" name="expireTime" id="expireTime" type="text" placeholder="请输入保质期" >
+                    <input class="form-text form-text-left" type="text" name="expireTime" id="expireTime" placeholder="请选择过期时间" readonly="readonly"/>
                 </div>
                 <div class="form-item">
                     <span>保留价：</span>

@@ -288,6 +288,8 @@ ol, ul {
 
 .navbar-nav>li>span {
     color: #722f34;
+    line-height: 20px;
+    font-size: 13px;
 }
 
 .navbar-nav>li {
