@@ -1,5 +1,5 @@
 .page {
-    width: 100%;
+    width: 1190px;
     color: #3c3c3c;
     font: 400 12px/1.6 arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;
     background: #efeaef;
@@ -46,14 +46,15 @@
 
 .paimer-div-2 {
     position: absolute;
-    right: 500px;
+    right: 790px;
     margin-top: 20px;
+    padding-right: 70px;
 }
 
 
 .paimer-div-3 {
     position: absolute;
-    right: 150px;
+    right: 390px;
     margin-top: 20px;
 }
 

@@ -75,12 +75,20 @@ public class SmsSender  {
 			client.executeMethod(post);
 
 			Header[] headers = post.getResponseHeaders();
+			for(Header h : headers)
+			{
+				logger.info("head:"+h.toString());
+			}
 			int statusCode = post.getStatusCode();
+			logger.info("statusCode:"+statusCode);
 
 			String result = new String(post.getResponseBodyAsString().getBytes("gbk"));
+			System.out.println(result); //打印返回消息状态
+			logger.info(mobileno + ":" + text + ":" + result);
 
 			post.releaseConnection();
 		} catch (IOException e) {
+			logger.error(e.getMessage(), e);
 			e.printStackTrace();
 		}
 	}

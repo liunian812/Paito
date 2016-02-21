@@ -247,7 +247,7 @@
         });
 
 
-        jQuery('.paito-user').bind('mouseenter',function(){
+        /*jQuery('.paito-user').bind('mouseenter',function(){
             fnTimer = setTimeout(function(){
                 var lnk, menu, lnkPos;
 
@@ -282,7 +282,7 @@
                 lnk.removeClass('lnk-user-selected-ie');
             }
 
-        });
+        });*/
 
 
         /*judge log info*/

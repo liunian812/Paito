@@ -58,7 +58,7 @@
     '</div>',
     '</div>-->',
     '<div id="J_liucheng" data-spm="4">',
-    '<img src="imgs/index-liucheng.jpg" class="img-liucheng">',
+    '<img src="imgs/index-liucheng.jpg" class="img-liucheng aligncenter">',
     '</div>',
     '<div style="width: 100%;background-color: #f6f6f6; height: 500px">',
         '<div id="J_yuming" data-spm="5" class="J_yuming aligncenter">',
