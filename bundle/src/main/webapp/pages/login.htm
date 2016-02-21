@@ -21,28 +21,31 @@
     <link href="../css/paito/paito-login.css" rel="stylesheet"/>
 </head>
 <body class="paito-login-body">
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <!--<nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
+            &lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;
             <div class="navbar-header">
                 <img src="../imgs/smalllogo.jpg">
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
+            &lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="http://pai.to/home/register.shtml">注册</a></li>
                     <li><a href="http://pai.to/home/aboutpaito.shtml">关于我们</a></li>
                 </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+            </div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;
+        </div>&lt;!&ndash; /.container-fluid &ndash;&gt;
+    </nav>-->
+
+    <script type="text/javascript" src="../js/paito/commontop.js"></script>
 
     <div class="content y-row" data-spm="2">
 
         <div id="login-module">
-            <div id="login-wrap" class="login-static nc-outer-box">
-                <form id="login-form" action="/home/doLogin.action" name="login-form" method="post" class="form clr style-type-vertical">
+            <div id="login-wrap">
+                <div id="login-panel">
+                    <form id="login-form" action="/home/doLogin.action" name="login-form" method="post" class="form clr style-type-vertical">
 
                     <div id="login-error" class="form-error notice notice-error">
                         <span class="icon-notice icon-error"></span>
@@ -89,10 +92,11 @@
                         <button type="submit" class="fm-button fm-submit" data-phase-id="r_p_next" id="fm-login-submit" tabindex="4" name="submit-btn">登  录</button>
                     </div>
                 </form>
-            </div>
 
-            <div class="login-links">
-                <a href="http://pai.to/home/register.shtml?from=login" target="_blank">注册新账号？</a>
+                    <div class="login-links">
+                        <a href="http://pai.to/home/register.shtml?from=login" target="_blank">注册新账号？</a>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -101,5 +105,5 @@
     </div>
 
 </body>
-<object style="width: 100%; height: 500px;" type="text/html" data="../pages/common/bottom.htm"></object>
+    <object style="width: 100%; height: 500px;" type="text/html" data="../pages/common/bottom2.htm"></object>
 </html>

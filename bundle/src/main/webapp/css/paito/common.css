@@ -1,36 +1,38 @@
 .J_bottom {
     width: 1190px;
     height: 361px;
-    background: url("../../imgs/index-bottom.jpg");
-    margin-top: 40px;
-    clear: both;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: auto;
+    margin-top: 50px;
 }
 
 .paito-bottom-logo {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     margin-left: 600px;
     position: relative;
-    margin-top: -30px;
 }
 
 .paito-bottom {
-    margin-top: -30px;
+    margin-top: -50px;
     width: 100%;
 }
 
 
 .paito-bottom-arrow {
-    margin-left: 300px;
-    position: absolute;
-    margin-top: -40px;
+    margin-top: -350px;
+    float: right;
 }
 
 .paito-bottom-totop {
-    margin-left: 300px;
-    position: absolute;
+    margin-top: -315px;
+    float: right;
+}
+
+.J_bottom2{
+    width: 100%;
+}
+
+.aligncenter {
+    clear: both;
+    display: block;
+    margin:auto;
 }

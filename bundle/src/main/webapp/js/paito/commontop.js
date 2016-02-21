@@ -27,57 +27,71 @@
     var callbackUrl, html;
 
     html = [
-    '<div id="J_slider" data-spm="3">',
-    '<img class="banner" src="imgs/banner.jpg">',
-    '<div class="aligncenter banner-float-div">',
-    '<img src="imgs/index-float-text.png" class="banner-float">',
-    '</div>',
-    /*'<div class="nav">',
-    '<i num="0" class="action"></i>',
-    '</div>',*/
-    '</div>',
-    '<!--<div class="ali-mian-notice" id="J_notice">',
-    '<div class="y-row">',
-    '<div class="y-span1" style="text-align: right;">',
-    '<img src="imgs/horn.jpg">',
-    '</div>',
-    '<div class="y-span3">',
-    '<span>·&nbsp;</span>',
-    '</div>',
-    '<div class="y-span3">',
-    '<span>·&nbsp;</span>',
-    '</div>',
-    '<div class="y-span3">',
-    '<span>·&nbsp;</span>',
-    '</div>',
-    '<div class="y-span2 y-last">',
-    '<a href="http://pai.to/noticelist.html" target="_blank">',
-    '更多&gt;&gt;',
-    '</a>',
-    '</div>',
-    '</div>',
-    '</div>-->',
-    '<div id="J_liucheng" data-spm="4">',
-    '<img src="imgs/index-liucheng.jpg" class="img-liucheng">',
-    '</div>',
-    '<div style="width: 100%;background-color: #f6f6f6; height: 500px">',
-        '<div id="J_yuming" data-spm="5" class="J_yuming aligncenter">',
-            '<div>',
-            '<span style="font-size: larger;font-weight: bold; ">本期热门域名竞猜</span>',
-            '<span style="position: relative;float: right;padding-right: 500px; color: red">每周二、周六22:00开拍</span>',
-            '</div>',
-            '<div id="J_nodata-notic">',
-            '<img src="imgs/bg-white.png" style="float: left;">',
-            '<span class="nodata_span_text">暂无数据，敬请期待!</span>',
-            '</div>',
-            '<div class="table-responsive paito-table y-hide" id="J_domaintable">',
-            '</div>',
+        '<div class="paito-fixed-top navbar-fixed-top">',
+            '<div class="aligncenter paito-daohang-div">',
+                '<!-- Brand and toggle get grouped for better mobile display -->',
+                '<div class="navbar-header">',
+                    '<div class="paito-user y-hide">',
+                        '<ul class="nav navbar-nav">',
+                            '<li><span style="padding-bottom: 15px;padding-top: 15px;display: block;">欢迎您!</span></li>',
+                            '<li><a  class="user-uid" href="#"></a></li>',
+                            '<li><a  id="lnk_Logout" href="http://pai.to/home/logout.shtml">退出</a></li>',
+                            '<li class="divider"></li>',
+                        '</ul>',
+                    '</div>',
+                    '<div>',
+                        '<ul class="navbar-nav paito-navbar-nav">',
+                            '<li><a href="http://pai.to/home/paimairule.shtml">帮助中心</a></li>',
+                            '<li class="divider"></li>',
+                            '<li><a href="#" onclick="javascript:window.external.AddFavorite("http://pai.to","拍兔")" title="收藏本站到你的收藏夹">收藏</a></li>',
+                            '<li><span class="navbar-nav>li>a">客服电话:400-869-8686(服务时间08:00~22:00)</span></li>',
+                            '<li><img src="../../imgs/header-weixin-logo.jpg" /><img src="../../imgs/header-qq-logo.jpg" /></li>',
+                        '</ul>',
+                    '</div>',
+
+                '</div>',
+                '<!-- Collect the nav links, forms, and other content for toggling -->',
+                '<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">',
+                    '<div class="paito-login">',
+                        '<ul class="navbar-nav paito-navbar-right">',
+                            '<li><a href="http://pai.to" id="lnk-index">首页</a></li>',
+                            '<li class="divider"></li>',
+                            '<li><a class="lnk-reg" target="_self" id="lnk-reg">免费注册</a></li>',
+                            '<li class="divider"></li>',
+                            '<li><a class="lnk-login" target="_self" id="lnk-login">登录</a></li>',
+                        '</ul>',
+                    '</div>',
+                '</div><!-- /.navbar-collapse -->',
+            '</div><!-- /.container-fluid -->',
         '</div>',
-        '<div id="J_contract" class="contract">',
-            '<img src="imgs/index-contract-icon.jpg" class="kefu" onfocus="showKefuQCode();">',
-            '<img src="imgs/index-weixin-icon.jpg" class="weixin" onfocus="showWeixinQCode();">',
+        '<div data-spm="2" class="aligncenter paito-daohang-div">',
+        '<div class="paito-common-header">',
+        '<div class="paito-common-header-inner">',
+        '<div class=" pull-left">',
+        '<a href="#"><img src="../../imgs/smalllogo.jpg"></a>',
         '</div>',
-    '</div>'
+        '<!-- 导航菜单 -->',
+        '<ul class="menu item" id="J_common_header_menu" data-spm="201">',
+        '<li class="top-menu-item" has-dropdown="true" menu-type="about" data-spm-click="gostr=/paito;locaid=">',
+        '<a class="menu-hd" href="http://pai.to/home/aboutpaito.shtml" target="_blank" >关于拍兔</a>',
+        '</li>',
+        '<li class="top-menu-item" has-dropdown="true" menu-type="commit" data-spm-click="gostr=/paito;locaid=">',
+        '<a class="menu-hd" href="http://pai.to/home/uploaddomain.json" target="_blank" >域名提交</a>',
+        '</li>',
+        '<li class="top-menu-item" has-dropdown="true" menu-type="rule" data-spm-click="gostr=/paito;locaid=">',
+        '<a class="menu-hd" href="http://pai.to/home/paimairule.shtml" target="_blank" >拍卖规则</a>',
+        '</li>',
+        '<li class="top-menu-item" has-dropdown="true" menu-type="product" data-spm-click="">',
+        '<a class="menu-hd" href="http://pai.to/paimai.html" target="_blank" >域名拍卖</a>',
+        '</li>',
+        '<li class="top-menu-item" has-dropdown="true" menu-type="index" data-spm-click="">',
+        '<a class="menu-hd" href="http://pai.to" target="_blank" >首页</a>',
+        '</li>',
+        '</ul>',
+        '</div>',
+        '</div>',
+        '</div>',
+        '<div class="horizon-line"></div>'
     ].join('');
 
 
@@ -196,6 +210,7 @@
         document.cookie = name + "=" + escape (value)+((expires == null) ? "" : ("; expires=" +LargeExpDate.toGMTString()));
     }
 
+
     if(getParameterByName('lang') == 'zh-hk'){
         setCookie("ft"+window.location.hostname.toString().replace(/\./g,""),'1');
         CookieHelper.set('paito_lang','zh',{domain:'.pai.to',path:'/',expires:30});
@@ -287,9 +302,16 @@
             jQuery('.lnk-reg').attr('href', 'http://pai.to/home/register.shtml' + callbackUrl);
         }
 
-        var showNoAuction = function(){
-            jQuery('.J_nodata-notic').removeClass('y-hide');
-            jQuery('.J_domaintable').addClass('y-hide');
+        var showUnLogin = function(){
+            jQuery('.paito-login').removeClass('y-hide');
+            jQuery('.paito-user').addClass('y-hide');
+            jQuery('.lnk-login').attr('href', 'http://pai.to/home/login.shtml' + callbackUrl);
+            if(window.location.search.indexOf('lang=en') >= 0 ){
+                jQuery('.lnk-reg').attr('href',  'http://pai.to/home/register.shtml?lang=en');
+                jQuery('#lnk_login').attr('href','http://pai.to/login/login.htm');
+            }else{
+                jQuery('.lnk-reg').attr('href', 'http://pai.to/home/register.shtml' + callbackUrl);
+            }
         };
 
         var uid = CookieHelper.get('_nk_');
@@ -304,56 +326,50 @@
          * 2. 在通过接口判断是否登录，
          */
 
-        var _ajaxLoadAuctionList = function(callback){
+        // 替换登录状态
+        var _changeLoginBtn = function () {
+            jQuery('.user-uid').text(uid);
+            jQuery('.paito-user').removeClass('y-hide');
+            jQuery('.paito-login').addClass('y-hide');
+            jQuery('#lnk_Logout').attr('href', 'http://pai.to/home//login.shtml' + callbackUrl);
+        }
+
+        var _ajaxLoadUserInfo = function (callback) {
             jQuery.ajax({
-                url: '/auction/findAuctionList.action',
+                url: '/user/accountInfo.json',
                 type: 'post',
                 cache: false,
                 dataType: 'json',
                 success: function (result) {
                     if (result.info.ok) {
+                        callback();
                         var data = result.data;
-                        var auctionList = data.auctionList;
-                        if(auctionList){
-                            var str = "<table>";
-                            str += '<table class="table table-bordered">';
-                            str += '<thead class="thread-border">';
-                            str += '<tr>';
-                            str += '<th class="col-md-3 col-1">热门域名</th>';
-                            str += '<th class="col-md-3 col-2">含义</th>';
-                            str += '<th class="col-md-3 col-1">预计成交价</th>';
-                            str += '<th class="col-md-3 col-2">竞猜成交价</th>';
-                            str += '</tr>';
-                            str += '</thead>';
-                            str += '<tbody>';
-                            for (var i = 0, l = auctionList.length; i < l; i++) {
-                                var one = auctionList[i];
-                                str += "<tr>";
-                                str += "<td>"+one.domain +"."+one.domainSuffix+"</td>";
-                                str += "<td>"+one.description+"</td>";
-                                str += "<td>"+one.basePrice+"</td>";
-                                str += "<td></td>";
-                                str += "</tr>";
-                            };
-                            str += "</tbody>";
-                            str += "</table>";
-                            document.getElementById("J_domaintable").innerHTML = str;
-                            jQuery('#J_domaintable').removeClass('y-hide');
-                            jQuery('#J_nodata-notic').addClass('y-hide');
-                        }
+                        uid = data.data.nickname;
+                        _changeLoginBtn();
+                        /*if (data.messageCount != undefined && parseInt(data.messageCount, 10) != 0) {
+                         jQuery('#mMessageCount').text('(' + data.messageCount + ')');
+                         } else {
+                         jQuery('#mMessageCount').hide();
+                         }*/
+                        jQuery('#lnk_index').css('margin-top', '3px');
                     } else {
-                        showNoAuction();
+                        showUnLogin();
                     }
                 },
                 error: function () {
-                    showNoAuction();
+                    showUnLogin();
                 }
             });
         }
 
-        _ajaxLoadAuctionList(function(){
-
-        });
+        if (uid) {
+            _changeLoginBtn();
+            _ajaxLoadUserInfo(function () {
+            });
+        } else{
+            _ajaxLoadUserInfo(function () {
+            });
+        }
 
     }
 
@@ -387,15 +403,7 @@
 
 }).call(this);
 
-function showKefuQCode(){
-    var a="2";
-    alert("2");
-}
 
-function showWeixinQCode(){
-    var b="3";
-    alert("3");
-}
-
+document.write('<link rel="stylesheet" href="/css/paito/index.css" type="text/css" />');
 document.write('<style>@media screen and (max-width: 1000px){#LnkNewUserTip{display: none !important;}}.ay-global-topbar{background:#008eb7!important;}#lnk_search{display:none;}#lnk_index{display:none;}#lnk_index_spacing{display:none;}</style>'
 );

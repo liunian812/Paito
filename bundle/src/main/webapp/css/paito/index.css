@@ -4,9 +4,8 @@
 
 .paito-common-header-inner .menu {
     width: 830px;
-    font-size: 16px;
-    line-height: 62px;
-    color: #fff;
+    line-height: 50px;
+    float: right;
 }
 
 .paito-common-header-inner .item {
@@ -14,12 +13,11 @@
 }
 
 .paito-common-header {
-    width: 100%;
-    height: 60px;
-    background: #00a2ca;
+    background: #ffffff;
     position: relative;
     z-index: 101;
-    margin-top: 60px;
+    margin-top: 50px;
+    height: 60px;
 }
 
 .paito-common-header-inner .menu li.top-menu-item {
@@ -36,8 +34,8 @@
 
 .paito-common-header-inner .menu li.top-menu-item .menu-hd {
     display: inline-block;
-    padding: 0 50px;
-    color: #fff;
+    padding: 0 20px;
+    color: #020202;
     text-decoration: none;
     float: right;
 }
@@ -167,9 +165,7 @@
 }
 
 .contract {
-    float: right;
-    width: 190px;
-    margin-top: 100px;
+    margin-top: -300px;
 }
 
 .weixin {
@@ -181,7 +177,7 @@
 }
 
 .paito-table {
-    width: 1000px;
+    width: 1190px;
     height: 445px;
     float: left;
 }
@@ -189,15 +185,14 @@
 .banner-float{
     position: relative;
     height: 300px;
-    margin-left: 800px;
-    margin-top: -365px;
+    float: right;
+    margin-top: -325px;
 }
 
 .J_yuming {
     margin-left: 50px;
     width: 1190px;
     height: 480px;
-    background-color: #f6f6f6;
 }
 
 .thread-border {
@@ -217,12 +212,12 @@ tr {
 }
 
 .nodata_span_text {
-    float: left;
     font-weight: bolder;
     margin-top: 200px;
     margin-left: -650px;
     font-size: 16px;
     color: red;
+    position: absolute;
 }
 
 .img-liucheng{
@@ -252,3 +247,70 @@ tr {
     float: right;
 }
 
+.banner-float-div{
+    width: 1190px;
+}
+
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 0px;
+    list-style:none;
+}
+
+.paito-daohang-div{
+    width: 1190px;
+}
+
+
+.paito-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+    width: 100%;
+    background-color: #420c14;
+    border-color: #e7e7e7;
+    height: 38px;
+}
+
+.paito-navbar-nav {
+    float: left;
+    margin: 5px;
+}
+
+.navbar-nav>li>a {
+    color: #F5EEEE;
+}
+
+
+.paito-navbar-right {
+    float: right !important;
+    margin: 5px;
+}
+
+.navbar-nav>li>span {
+    color: #722f34;
+}
+
+.navbar-nav>li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding: 0 5px;
+    font-size: 5px;
+}
+
+.divider {
+    border-right: 1px solid #abafb3;
+    display: inline-block;
+    margin-left: -3px;
+    height: 15px;
+    margin-top: 3px;
+    margin-right: 2px;
+}
+
+.horizon-line {
+    width:100%;
+    height:1px;
+    margin:0px auto;
+    padding:0px;
+    background-color:#D5D5D5;
+    overflow:hidden;
+}

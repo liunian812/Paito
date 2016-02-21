@@ -22,17 +22,31 @@ body {
 
 .content #login-module {
     position: absolute;
-    left: 160px;
-    margin-bottom: 10px;
     background-color: #ffffff;
-    min-width: 292px;
-    min-height: 260px;
-    z-index: 2;
-    margin-top: 100px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    top: 0;
+    margin: 0 auto;
+    width: 1002px;
 }
 
 #login-wrap {
+    position: absolute;
+    top: 33px;
+    right: 20px;
+    width: 310px;
+    height: 286px;
+    box-shadow: 0 0 8px 1px rgba(0,0,0,.22);
+}
+
+#login-panel{
+    background: #FFF;
+    width: 310px;
+    height: 286px;
     position: relative;
+    overflow: hidden;
 }
 
 #login-form {
