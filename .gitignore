@@ -20,3 +20,5 @@ bundle/target/
 web/target
 
 biz/target
+
+MANIFEST.MF
