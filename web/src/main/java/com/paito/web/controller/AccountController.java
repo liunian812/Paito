@@ -62,7 +62,7 @@ public class AccountController {
 
         String msgid = UUID.randomUUID().toString().replaceAll("-", "");
         try {
-            SmsSender.sendSMS(mobileno, "【拍兔】正在手机验证!验证码为:" + verifycode + "。");
+            SmsSender.sendSMS(mobileno, "【拍兔网】尊敬的用户，您的手机验证码为:" + verifycode + "，请勿泄漏。【拍兔网】");
         } catch (Exception e) {
             log.error("发送手机验证码失败", e);
             e.printStackTrace();
